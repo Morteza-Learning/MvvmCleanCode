@@ -1,6 +1,9 @@
 using Core;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using System.Windows.Forms;
+
+
 
 namespace MvvmCleanCode.ViewModel
 {
@@ -12,10 +15,10 @@ namespace MvvmCleanCode.ViewModel
         public MainViewModel(IService _service)
         {
             Title = "I Am Default Title";
-
-            DatabaseChanger.ChangeDatabaseNameTo("1398");
+            var p = Properties.Settings.Default.DatabaseName;
+            DatabaseChanger.ChangeDatabaseNameTo(p);
             service = _service;
-            service.Save("I Am 1398 Title");
+            service.Save("I Am "+ p + " Title");
         }
 
         private string myVar;
@@ -39,8 +42,10 @@ namespace MvvmCleanCode.ViewModel
                 return _Change ?? (_Change = new RelayCommand(
                     () =>
                     {
-                        DatabaseChanger.ChangeDatabaseNameTo("1399");
-                        service.Save("I Am 1399 Title");
+                        Properties.Settings.Default.DatabaseName = "1399";
+                        Properties.Settings.Default.Save();
+
+                        Application.Restart();
                     }
                     ));
             }
