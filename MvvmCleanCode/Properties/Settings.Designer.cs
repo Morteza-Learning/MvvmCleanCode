@@ -25,7 +25,7 @@ namespace MvvmCleanCode.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("database1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("database123")]
         public string DatabaseName {
             get {
                 return ((string)(this["DatabaseName"]));

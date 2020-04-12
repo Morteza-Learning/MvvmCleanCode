@@ -4,6 +4,7 @@ using GalaSoft.MvvmLight.Ioc;
 using CommonServiceLocator;
 using Core;
 using Data;
+using System;
 
 namespace MvvmCleanCode.ViewModel
 {
@@ -20,13 +21,21 @@ namespace MvvmCleanCode.ViewModel
             SimpleIoc.Default.Register<IRepository, Repository>();
             
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<SaleMaliViewModel>();
         }
 
         public MainViewModel Main
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
+                return ServiceLocator.Current.GetInstance<MainViewModel>(Guid.NewGuid().ToString());
+            }
+        }
+        public SaleMaliViewModel SaleMali
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<SaleMaliViewModel>(Guid.NewGuid().ToString());
             }
         }
         

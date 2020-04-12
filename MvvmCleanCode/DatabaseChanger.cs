@@ -15,16 +15,15 @@ namespace MvvmCleanCode
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             config.ConnectionStrings.ConnectionStrings.Clear();
             config.ConnectionStrings.ConnectionStrings.Add(
-                new ConnectionStringSettings("CString", getConnectionString(databaseName), "System.Data.SqlClient"));
+                new ConnectionStringSettings("CString", getConnectionString(databaseName), "System.Data.SqlServerCe.4.0"));
             config.Save(ConfigurationSaveMode.Modified, true);
             ConfigurationManager.RefreshSection("connectionStrings");
         }
 
         private static string getConnectionString(string databaseName)
         {
-            var path = databaseName + ".mdf";
-            return "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\" + path
-                + ";Integrated Security=True;Connect Timeout=30";
+            var path = databaseName + ".sdf";
+            return "Data Source=|DataDirectory|\\" + path;
         }
 
         public static void BackUpDatabase(string databaseName)
