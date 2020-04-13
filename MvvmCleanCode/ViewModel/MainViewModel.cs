@@ -14,13 +14,23 @@ namespace MvvmCleanCode.ViewModel
        
         public MainViewModel(IService _service)
         {
-            Title = Settings.Default.DatabaseName;
+            try
+            {
+                
+                Title = Settings.Default.DatabaseName;
 
-            var p = Settings.Default.DatabaseName;
+                var p = Settings.Default.DatabaseName;
 
-            DatabaseChanger.ChangeDatabaseNameTo(p);
-            service = _service;
-            service.Save("I Am " + p + " Title");
+                DatabaseChanger.ChangeDatabaseNameTo(p);
+                service = _service;
+                service.Save("I Am " + p + " Title");
+            }
+            catch (System.Exception er)
+            {
+                
+                System.Windows.Forms.MessageBox.Show(er.Message.ToString());
+            }
+
         }
 
         private string myVar;
