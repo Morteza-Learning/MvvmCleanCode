@@ -16,6 +16,5 @@
             Command="{Binding Change}"
             CommandParameter="{Binding ElementName=main}"
             Content="Change" />
-
     </Grid>
 </Window>

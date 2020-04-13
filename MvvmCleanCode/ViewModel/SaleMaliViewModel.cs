@@ -1,14 +1,10 @@
-using Core;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using MvvmCleanCode.Properties;
 using System.Windows;
 
-
-
 namespace MvvmCleanCode.ViewModel
 {
-   
     public class SaleMaliViewModel : ViewModelBase
     {
         public SaleMaliViewModel()
@@ -21,13 +17,12 @@ namespace MvvmCleanCode.ViewModel
         public string salmal
         {
             get { return myVar; }
-            set 
-            { 
+            set
+            {
                 myVar = value;
                 RaisePropertyChanged("salmal");
             }
         }
-
 
         private RelayCommand<Window> _changeSal;
 
@@ -48,7 +43,5 @@ namespace MvvmCleanCode.ViewModel
                     ));
             }
         }
-
-        
     }
 }

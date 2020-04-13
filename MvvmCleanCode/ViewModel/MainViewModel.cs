@@ -4,19 +4,16 @@ using GalaSoft.MvvmLight.CommandWpf;
 using MvvmCleanCode.Properties;
 using System.Windows;
 
-
 namespace MvvmCleanCode.ViewModel
 {
-   
     public class MainViewModel : ViewModelBase
     {
         private IService service;
-       
+
         public MainViewModel(IService _service)
         {
             try
             {
-                
                 Title = Settings.Default.DatabaseName;
 
                 var p = Settings.Default.DatabaseName;
@@ -27,10 +24,8 @@ namespace MvvmCleanCode.ViewModel
             }
             catch (System.Exception er)
             {
-                
                 System.Windows.Forms.MessageBox.Show(er.Message.ToString());
             }
-
         }
 
         private string myVar;
@@ -38,8 +33,8 @@ namespace MvvmCleanCode.ViewModel
         public string Title
         {
             get { return myVar; }
-            set 
-            { 
+            set
+            {
                 myVar = value;
                 RaisePropertyChanged("Title");
             }

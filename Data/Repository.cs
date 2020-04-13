@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace Data
 {
-    public class Repository :IRepository
+    public class Repository : IRepository
     {
-        
         public MyData GetMyDataFromDb()
         {
             using (var db = new Context())
@@ -17,12 +12,11 @@ namespace Data
             }
         }
 
-
         public void SaveDataToDb(string title)
         {
             using (var db = new Context())
             {
-                db.MyDatas.Add(new MyData(){Title=title});
+                db.MyDatas.Add(new MyData() { Title = title });
                 db.SaveChanges();
             }
         }
