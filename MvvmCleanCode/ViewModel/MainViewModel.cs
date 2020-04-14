@@ -2,6 +2,7 @@ using Core;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using MvvmCleanCode.Properties;
+using System.IO;
 using System.Windows;
 
 namespace MvvmCleanCode.ViewModel
@@ -9,18 +10,14 @@ namespace MvvmCleanCode.ViewModel
     public class MainViewModel : ViewModelBase
     {
         private IService service;
-
+        SaleMali saleMali;
         public MainViewModel(IService _service)
         {
             try
             {
-                Title = Settings.Default.DatabaseName;
-
-                var p = Settings.Default.DatabaseName;
-
-                DatabaseChanger.ChangeDatabaseNameTo(p);
+                saleMali = new SaleMali();
                 service = _service;
-                service.Save("I Am " + p + " Title");
+                service.Save("Asdasd");
             }
             catch (System.Exception er)
             {
@@ -28,15 +25,21 @@ namespace MvvmCleanCode.ViewModel
             }
         }
 
-        private string myVar;
 
         public string Title
         {
-            get { return myVar; }
+            get { return saleMali.CurrentSalMali; }
+            
+        }
+        private string _Result;
+
+        public string Result
+        {
+            get { return _Result; }
             set
             {
-                myVar = value;
-                RaisePropertyChanged("Title");
+                _Result = value;
+                RaisePropertyChanged("Result");
             }
         }
 
@@ -66,7 +69,27 @@ namespace MvvmCleanCode.ViewModel
                 return _Load ?? (_Load = new RelayCommand(
                     () =>
                     {
-                        Title = service.GetData();
+                        
+                        Result = service.GetDatabaseInfo() + "\r\n";
+                    }
+                    ));
+            }
+        }
+        private RelayCommand _Backup;
+
+        public RelayCommand Backup
+        {
+            get
+            {
+                return _Backup ?? (_Backup = new RelayCommand(
+                    () =>
+                    {
+                        //if (File.Exists(saleMali.getCurrentSalMaliDatabaseLocation()))
+                        //{
+                        //    FileInfo Sourcefile = new FileInfo(saleMali.getCurrentSalMaliDatabaseLocation());
+                        //    Sourcefile.CopyTo("c:\\", true);
+                        //    Result = "File Is Ok";
+                        //}
                     }
                     ));
             }

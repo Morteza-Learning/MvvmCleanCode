@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="DatabaseName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">database123</Value>
+      <Value Profile="(Default)">1398</Value>
     </Setting>
   </Settings>
 </SettingsFile>

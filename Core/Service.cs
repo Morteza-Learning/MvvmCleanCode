@@ -20,5 +20,11 @@ namespace Core
         {
             repository.SaveDataToDb(title);
         }
+
+
+        public string GetDatabaseInfo()
+        {
+            return repository.GetDataBaseInfo();
+        }
     }
 }

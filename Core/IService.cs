@@ -3,7 +3,7 @@
     public interface IService
     {
         string GetData();
-
         void Save(string p);
+        string GetDatabaseInfo();
     }
 }

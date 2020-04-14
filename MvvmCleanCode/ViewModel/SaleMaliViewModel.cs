@@ -7,22 +7,15 @@ namespace MvvmCleanCode.ViewModel
 {
     public class SaleMaliViewModel : ViewModelBase
     {
+        SaleMali salMali;
         public SaleMaliViewModel()
         {
-            salmal = Settings.Default.DatabaseName;
+            salMali = new SaleMali();
+            salmal = salMali.CurrentSalMali;
         }
 
-        private string myVar;
-
-        public string salmal
-        {
-            get { return myVar; }
-            set
-            {
-                myVar = value;
-                RaisePropertyChanged("salmal");
-            }
-        }
+        public string salmal { get; set; }
+        
 
         private RelayCommand<Window> _changeSal;
 
@@ -33,9 +26,7 @@ namespace MvvmCleanCode.ViewModel
                 return _changeSal ?? (_changeSal = new RelayCommand<Window>(
                     (p) =>
                     {
-                        Settings.Default.DatabaseName = salmal;
-                        Settings.Default.Save();
-                        Settings.Default.Reload();
+                        salMali.CurrentSalMali = salmal;
 
                         System.Windows.Forms.Application.Restart();
                         System.Windows.Application.Current.Shutdown();

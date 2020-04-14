@@ -5,5 +5,7 @@
         MyData GetMyDataFromDb();
 
         void SaveDataToDb(string title);
+
+        string GetDataBaseInfo();
     }
 }

@@ -5,16 +5,27 @@
     Width="525" Height="350"
     DataContext="{Binding Main, Source={StaticResource Locator}}">
     <Grid>
-        <Button
-            Width="75" Margin="212,136,0,0"
-            HorizontalAlignment="Left" VerticalAlignment="Top"
-            Command="{Binding Load}"
-            Content="Load" />
-        <Button
-            Width="75" Margin="292,136,0,0"
-            HorizontalAlignment="Left" VerticalAlignment="Top"
-            Command="{Binding Change}"
-            CommandParameter="{Binding ElementName=main}"
-            Content="Change" />
+        <StackPanel
+            HorizontalAlignment="Stretch" VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <Button
+                Margin="10"
+                Command="{Binding Load}"
+                Content="LoadData" />
+            <Button
+                Margin="10"
+                Command="{Binding Change}"
+                CommandParameter="{Binding ElementName=main}"
+                Content="ChangeSalMali" />
+            <Button
+                Margin="10"
+                Command="{Binding Backup}"
+                CommandParameter="{Binding ElementName=main}"
+                Content="BackupDataBaseToDeskTop" />
+        </StackPanel>
+        <Label
+            MinHeight="100" HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            Content="{Binding Result}" />
     </Grid>
 </Window>
