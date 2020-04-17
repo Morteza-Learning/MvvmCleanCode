@@ -18,7 +18,7 @@ namespace MvvmCleanCode.ViewModel
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<SaleMaliViewModel>();
         }
-
+        
         public MainViewModel Main
         {
             get
@@ -26,6 +26,8 @@ namespace MvvmCleanCode.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>(Guid.NewGuid().ToString());
             }
         }
+
+       
 
         public SaleMaliViewModel SaleMali
         {

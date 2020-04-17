@@ -26,7 +26,7 @@ namespace MvvmCleanCode.ViewModel
                 return _changeSal ?? (_changeSal = new RelayCommand<Window>(
                     (p) =>
                     {
-                        salMali.CurrentSalMali = salmal;
+                        salMali.ChangeSalMali(salmal);
 
                         System.Windows.Forms.Application.Restart();
                         System.Windows.Application.Current.Shutdown();
@@ -34,5 +34,22 @@ namespace MvvmCleanCode.ViewModel
                     ));
             }
         }
+        //private RelayCommand<Window> _OpenBackUp;
+
+        //public RelayCommand<Window> OpenBackUp
+        //{
+        //    get
+        //    {
+        //        return _OpenBackUp ?? (_OpenBackUp = new RelayCommand<Window>(
+        //            (p) =>
+        //            {
+        //                salMali.ChangeSalMali("temp");
+
+        //                System.Windows.Forms.Application.Restart();
+        //                System.Windows.Application.Current.Shutdown();
+        //            }
+        //            ));
+        //    }
+        //}
     }
 }

@@ -6,16 +6,18 @@
     DataContext="{Binding SaleMali, Source={StaticResource Locator}}">
     <Grid>
         <Button
-            Width="75" Margin="104,120,0,0"
+             Margin="127,120,0,0"
             HorizontalAlignment="Left" VerticalAlignment="Top"
             Command="{Binding changeSal}"
             CommandParameter="{Binding ElementName=sal}"
-            Content="Change To 1399" />
+            Content="Change Database" />
         <TextBox
             Width="120" Height="23"
             Margin="92,63,0,0" HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Text="{Binding salmal}"
             TextWrapping="Wrap" />
+        <Button Command="{Binding OpenBackUp}"
+            CommandParameter="{Binding ElementName=sal}" Content="OpenBackUp" HorizontalAlignment="Left" Margin="34,120,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>
